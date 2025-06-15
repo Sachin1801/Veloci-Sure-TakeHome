@@ -32,6 +32,7 @@ function SpeechInput() {
         aria-pressed={listening}
         onClick={handleMic}
         colorScheme={listening ? 'red' : 'teal'}
+        variant="solid"
       />
       <Button onClick={resetTranscript} variant="outline" colorScheme="gray">
         Reset
@@ -45,6 +46,8 @@ function SpeechInput() {
         placeholder="Press the mic and speak…"
         resize="vertical"
         minH="120px"
+        bg="white"
+        color="gray.800"
       />
     </Stack>
   );
