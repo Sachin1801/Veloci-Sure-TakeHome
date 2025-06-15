@@ -26,15 +26,24 @@ function SpeechInput() {
   return (
     <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align="start">
       <IconButton
-        className="icon-button"
+        className={`icon-button ${listening ? 'active-mic' : ''}`}
         icon={<MdMic />}
-        aria-label="Record"
+        aria-label={listening ? 'Stop voice input' : 'Start voice input'}
         aria-pressed={listening}
         onClick={handleMic}
-        colorScheme={listening ? 'red' : 'teal'}
-        variant="solid"
+        bg={listening ? 'red.500' : 'teal.500'}
+        _hover={{ bg: listening ? 'red.600' : 'teal.600' }}
+        color="white"
+        size="lg"
       />
-      <Button onClick={resetTranscript} variant="outline" colorScheme="gray">
+      <Button
+        onClick={resetTranscript}
+        variant="solid"
+        bg="gray.600"
+        _hover={{ bg: 'gray.700', textShadow: '0 0 6px rgba(255,255,255,0.8)' }}
+        color="white"
+        className="reset-btn"
+      >
         Reset
       </Button>
       <Textarea

@@ -84,3 +84,12 @@ button:focus-visible {
   color: #2d3748;
   background-color: #f7fafc;
 }
+
+@keyframes glow {
+  from { box-shadow: 0 0 0px rgba(255, 0, 0, 0.7); }
+  to   { box-shadow: 0 0 12px rgba(255, 0, 0, 0.9); }
+}
+
+.active-mic {
+  animation: glow 1s infinite alternate;
+}
