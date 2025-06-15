@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typewriter placeholder cursor not necessary; kept for reference */
+
+@keyframes textShadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    transform: translate(-3px, -3px);
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    transform: translate(-6px, -6px);
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    transform: translate(-9px, -9px);
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px 0 var(--color-quaternary);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px 0 var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px 0 var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px 0 var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+.text-3d {
+  --color-secondary: #9ca3af; /* gray-400 just placeholder for shadow layers */
+  --color-tertiary: #6b7280;  /* gray-500 */
+  --color-quaternary: #4b5563; /* gray-600 */
+  --color-quinary: #374151;   /* gray-700 */
+
+  animation: textShadows 1.2s ease-in infinite;
+  letter-spacing: 0.05em;
+}
+
+/* Gooey marquee effect */
+
+.marquee {
+  position: relative;
+  width: 100%;
+  height: 2.5rem; /* adjust */
+  overflow: hidden;
+}
+
+.marquee_text {
+  position: absolute;
+  min-width: 100%;
+  white-space: nowrap;
+  animation: marquee 16s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(70%);
+  }
+  to {
+    transform: translateX(-70%);
+  }
+}
+
+.marquee_blur,
+.marquee_clear {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.marquee_blur {
+  background-color: #ffffff; /* light */
+  background-image: linear-gradient(to right, #ffffff 1rem, transparent 50%), linear-gradient(to left, #ffffff 1rem, transparent 50%);
+  filter: contrast(15);
+}
+
+.dark .marquee_blur {
+  background-color: #000000;
+  background-image: linear-gradient(to right, #000000 1rem, transparent 50%), linear-gradient(to left, #000000 1rem, transparent 50%);
+}
+
+.marquee_blur p {
+  filter: blur(0.08em);
+}
+
+/* Typewriter effect for header */
+@keyframes typewriterHeader {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; }
+}
+@keyframes blinkHeader {
+  from { border-color: currentColor; }
+  to { border-color: transparent; }
+}
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid currentColor;
+  animation: typewriterHeader 3s steps(24) infinite, blinkHeader 0.75s step-end infinite;
+}
+
+/* Rainbow background animation */
+:root {
+  --purple: rgb(232 121 249);
+  --blue: rgb(96 165 250);
+  --green: rgb(94 234 212);
+}
+
+.bg-stripes {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -10;
+}
+
+.rainbow {
+  position: absolute;
+  top: 0;
+  right: -25vw;
+  width: 0;
+  height: 140vh;
+  transform: rotate(10deg);
+  transform-origin: top right;
+  animation: slide 45s linear infinite;
+}
+
+/* create variation for each stripe */
+.rainbow:nth-child(6n+1) { box-shadow: -130px 0 80px 40px white,-50px 0 50px 25px var(--purple),0 0 50px 25px var(--blue),50px 0 50px 25px var(--green),130px 0 80px 40px white; }
+.rainbow:nth-child(6n+2) { box-shadow: -130px 0 80px 40px white,-50px 0 50px 25px var(--purple),0 0 50px 25px var(--green),50px 0 50px 25px var(--blue),130px 0 80px 40px white; }
+.rainbow:nth-child(6n+3) { box-shadow: -130px 0 80px 40px white,-50px 0 50px 25px var(--green),0 0 50px 25px var(--purple),50px 0 50px 25px var(--blue),130px 0 80px 40px white; }
+.rainbow:nth-child(6n+4) { box-shadow: -130px 0 80px 40px white,-50px 0 50px 25px var(--green),0 0 50px 25px var(--blue),50px 0 50px 25px var(--purple),130px 0 80px 40px white; }
+.rainbow:nth-child(6n+5) { box-shadow: -130px 0 80px 40px white,-50px 0 50px 25px var(--blue),0 0 50px 25px var(--green),50px 0 50px 25px var(--purple),130px 0 80px 40px white; }
+.rainbow:nth-child(6n)   { box-shadow: -130px 0 80px 40px white,-50px 0 50px 25px var(--blue),0 0 50px 25px var(--purple),50px 0 50px 25px var(--green),130px 0 80px 40px white; }
+
+@keyframes slide {
+  from { right: -25vw; }
+  to { right: 125vw; }
+}
