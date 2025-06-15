@@ -1,7 +1,5 @@
-import { IconButton, Button, Textarea, Stack, Box } from '@chakra-ui/react';
-import { Alert } from '@chakra-ui/react';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { MdMic } from 'react-icons/md';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function SpeechInput() {
   const {
@@ -20,48 +18,39 @@ function SpeechInput() {
   };
 
   if (!browserSupportsSpeechRecognition) {
-    return <Alert status="error">Browser does not support voice input.</Alert>;
+    return <p className="text-red-600">Browser does not support voice input.</p>;
   }
 
   return (
-    <Stack direction="column" spacing={4} align="center" justify="center" maxW="sm">
-      <IconButton
-        className={`icon-button ${listening ? 'active-mic' : ''}`}
-        icon={<MdMic />}
+    <div className="w-full max-w-sm flex flex-col items-center gap-4">
+      <button
+        className={`icon-button ${listening ? 'active-mic' : ''} w-12 h-12 rounded-lg flex items-center justify-center text-white ${listening ? 'bg-red-500' : 'bg-teal-500'} hover:brightness-110`}
         aria-label={listening ? 'Stop voice input' : 'Start voice input'}
         aria-pressed={listening}
         onClick={handleMic}
-        bg={listening ? 'red.500' : 'teal.500'}
-        _hover={{ bg: listening ? 'red.600' : 'teal.600' }}
-        color="white"
-        size="lg"
-      />
-      <Button
+      >
+        <MdMic size={24} />
+      </button>
+
+      <button
         onClick={resetTranscript}
-        variant="solid"
-        bg="gray.600"
-        _hover={{ bg: 'gray.700', textShadow: '0 0 6px rgba(255,255,255,0.8)' }}
-        color="white"
-        className="reset-btn"
+        className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700"
       >
         Reset
-      </Button>
-      <Textarea
+      </button>
+
+      <textarea
         id="transcript"
         name="transcript"
         aria-label="Transcript"
         readOnly
         value={transcript}
         placeholder="Press the mic and speak…"
-        resize="vertical"
-        minH="120px"
-        bg="white"
-        color="gray.800"
+        className="w-full min-h-[120px] p-3 border rounded resize-vertical text-gray-800"
       />
-      <Box fontSize="sm" color="gray.500" textAlign="center">
-        Click the microphone to start or stop recording
-      </Box>
-    </Stack>
+
+      <p className="text-sm text-gray-500 text-center">Click the microphone to start or stop recording</p>
+    </div>
   );
 }
 

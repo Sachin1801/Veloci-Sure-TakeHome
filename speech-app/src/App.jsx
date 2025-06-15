@@ -1,12 +1,11 @@
-import { Box, Heading } from '@chakra-ui/react';
 import SpeechInput from './components/SpeechInput.jsx';
 
 function App() {
   return (
-    <Box p={6} w="100%" textAlign="center" display="flex" flexDir="column" alignItems="center" justifyContent="center" minH="100vh">
-      <Heading mb={6} size="lg">Give your voice input below</Heading>
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+      <h1 className="text-2xl font-semibold mb-6">Give your voice input below</h1>
       <SpeechInput />
-    </Box>
+    </div>
   );
 }
 

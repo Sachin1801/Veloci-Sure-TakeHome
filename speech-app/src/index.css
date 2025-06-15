@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -91,5 +95,5 @@ button:focus-visible {
 }
 
 .active-mic {
-  animation: glow 1s infinite alternate;
+  animation: pulse 1s infinite alternate;
 }
