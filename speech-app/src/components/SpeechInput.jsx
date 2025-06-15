@@ -31,9 +31,9 @@ function SpeechInput() {
         aria-label="Record"
         aria-pressed={listening}
         onClick={handleMic}
-        colorScheme={listening ? 'red' : 'blue'}
+        colorScheme={listening ? 'red' : 'teal'}
       />
-      <Button onClick={resetTranscript} variant="outline">
+      <Button onClick={resetTranscript} variant="outline" colorScheme="gray">
         Reset
       </Button>
       <Textarea
