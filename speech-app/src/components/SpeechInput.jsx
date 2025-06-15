@@ -24,7 +24,7 @@ function SpeechInput() {
   }
 
   return (
-    <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align="center" justify="center">
+    <Stack direction="column" spacing={4} align="center" justify="center" maxW="sm">
       <IconButton
         className={`icon-button ${listening ? 'active-mic' : ''}`}
         icon={<MdMic />}
@@ -58,7 +58,7 @@ function SpeechInput() {
         bg="white"
         color="gray.800"
       />
-      <Box fontSize="sm" color="gray.500" textAlign="center" w="full">
+      <Box fontSize="sm" color="gray.500" textAlign="center">
         Click the microphone to start or stop recording
       </Box>
     </Stack>
