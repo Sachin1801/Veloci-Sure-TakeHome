@@ -37,6 +37,9 @@ function SpeechInput() {
         Reset
       </Button>
       <Textarea
+        id="transcript"
+        name="transcript"
+        aria-label="Transcript"
         readOnly
         value={transcript}
         placeholder="Press the mic and speak…"
