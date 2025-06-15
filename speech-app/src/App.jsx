@@ -1,11 +1,9 @@
-import { ChakraProvider, Box, Heading, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, Box, Heading, defaultSystem } from '@chakra-ui/react';
 import SpeechInput from './components/SpeechInput.jsx';
-
-const theme = extendTheme({});
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider value={defaultSystem}>
       <Box p={6} maxW="xl" mx="auto" textAlign="center">
         <Heading mb={4}>Voice Notes</Heading>
         <SpeechInput />
