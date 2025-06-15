@@ -1,7 +1,7 @@
 import { Box, Button, Alert } from '@chakra-ui/react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-const SpeechInput = () => {
+function SpeechInput() {
   const {
     transcript,
     listening,
@@ -9,7 +9,6 @@ const SpeechInput = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
-  // Toggle microphone listening
   const handleMic = () => {
     if (listening) {
       SpeechRecognition.stopListening();
@@ -33,6 +32,6 @@ const SpeechInput = () => {
       <Box mt={4}>{transcript || 'Press the mic and speak…'}</Box>
     </Box>
   );
-};
+}
 
 export default SpeechInput; 
