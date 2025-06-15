@@ -1,4 +1,4 @@
-import { IconButton, Button, Textarea, Stack } from '@chakra-ui/react';
+import { IconButton, Button, Textarea, Stack, Box } from '@chakra-ui/react';
 import { Alert } from '@chakra-ui/react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { MdMic } from 'react-icons/md';
@@ -24,7 +24,7 @@ function SpeechInput() {
   }
 
   return (
-    <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align="start">
+    <Stack direction={{ base: 'column', md: 'row' }} spacing={4} align="center" justify="center">
       <IconButton
         className={`icon-button ${listening ? 'active-mic' : ''}`}
         icon={<MdMic />}
@@ -58,6 +58,9 @@ function SpeechInput() {
         bg="white"
         color="gray.800"
       />
+      <Box fontSize="sm" color="gray.500" textAlign="center" w="full">
+        Click the microphone to start or stop recording
+      </Box>
     </Stack>
   );
 }
